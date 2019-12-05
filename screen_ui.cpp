@@ -76,7 +76,7 @@ ScreenRecoveryUI::ScreenRecoveryUI() :
     loop_frames(0),
     current_frame(0),
     intro_done(false),
-    animation_fps(30), // TODO: there's currently no way to infer this.
+    animation_fps(4), // TODO: there's currently no way to infer this.
     stage(-1),
     max_stage(-1),
     updateMutex(PTHREAD_MUTEX_INITIALIZER),
@@ -301,7 +301,7 @@ void ScreenRecoveryUI::draw_screen_locked() {
             property_get("ro.bootimage.build.fingerprint", recovery_fingerprint, "");
 
             SetColor(INFO);
-            DrawTextLine(TEXT_INDENT, &y, "Android Recovery", true);
+            DrawTextLine(TEXT_INDENT, &y, "Ubports Recovery", true);
             for (auto& chunk : android::base::Split(recovery_fingerprint, ":")) {
                 DrawTextLine(TEXT_INDENT, &y, chunk.c_str(), false);
             }
